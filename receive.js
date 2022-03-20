@@ -1,3 +1,5 @@
+//  Sample template from https://www.rabbitmq.com/tutorials/tutorial-one-javascript.html
+
 #!/usr/bin/env node
 
 var amqp = require('amqplib/callback_api');
