@@ -1,3 +1,6 @@
+# Got this sample code from https://www.cloudamqp.com/blog/part2-3-rabbitmq-for-beginners_example-and-sample-code-python.html
+
+
 import pika, os, time
 
 def pdf_process_function(msg):
