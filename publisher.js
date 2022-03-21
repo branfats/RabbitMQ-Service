@@ -25,7 +25,7 @@ ESD eCommerce Team"
    durable: true
    });
    await channel.sendToQueue("checkout", msg);
-   console.log("Sending message to number queue");
+   console.log("Sending message to checkout queue");
    
    await channel.close();
    await connection.close();
