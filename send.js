@@ -1,5 +1,5 @@
 // Sample template from https://www.rabbitmq.com/tutorials/tutorial-one-javascript.html
-// This tutorial assumes RabbitMQ is installed and running on localhost on the standard port (5672). In case you use a different host, port or credentials, connections settings would require adjusting.
+// This tutorial assumes RabbitMQ is installed and running on localhost on the standard port(5672). In case you use a different host, port or credentials, connections settings would require adjusting.
 // require amqp.node client libary to be installed
 
 #!/usr/bin/env node
