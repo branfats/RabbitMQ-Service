@@ -8,9 +8,9 @@ var amqp = require('amqplib/callback_api');
 // ROUTES 
 
 //POST
-app.post("/email/order/:userId/:orderId", async(req,res)=>{
+app.post("/email/order/:orderId", async(req,res)=>{
     try {
-        const {userId, orderId} = req.params
+        const {orderId} = req.params
         const {name, email} = req.body
         let msg = `
         
@@ -31,7 +31,6 @@ app.post("/email/order/:userId/:orderId", async(req,res)=>{
         msg = msg.replace('put_order_id_here', "#"+orderId);
 
         let obj = {
-            userId: userId,
             orderId: orderId,
             name:name,
             email:email,
@@ -47,9 +46,9 @@ app.post("/email/order/:userId/:orderId", async(req,res)=>{
     }
 })
 
-app.post("/email/sent/:userId/:orderId", async(req,res)=>{
+app.post("/email/sent/:orderId", async(req,res)=>{
     try {
-        const {userId, orderId} = req.params
+        const {orderId} = req.params
         const {name, email} = req.body
         let msg = `
         
@@ -64,7 +63,6 @@ app.post("/email/sent/:userId/:orderId", async(req,res)=>{
         msg = msg.replace('put_order_id_here', "#"+orderId);
 
         let obj = {
-            userId: userId,
             orderId: orderId,
             name:name,
             email:email,
@@ -82,7 +80,7 @@ app.post("/email/sent/:userId/:orderId", async(req,res)=>{
 
 app.post("/email/receive/:orderId", async(req,res)=>{
     try {
-        const {userId, orderId} = req.params
+        const {orderId} = req.params
         const {name, email} = req.body
         let msg = `
         Hey admin,
@@ -98,7 +96,6 @@ app.post("/email/receive/:orderId", async(req,res)=>{
         msg = msg.replace('put_order_id_here', "#"+orderId);
 
         let obj = {
-            userId: userId,
             orderId: orderId,
             name:name,
             email:email,
