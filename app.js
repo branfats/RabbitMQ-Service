@@ -14,18 +14,25 @@ app.post("/email/order/:orderId", async(req,res)=>{
         const {name, email} = req.body
         let msg = `
         
-        THANK YOU FOR YOUR ORDER!
-       
-        Hey put_name_here,
-        
-        This email contains the status of your recent order put_order_id_here. At this time, we are starting to work on your order and are unable to cancel items or make changes.
-        ORDERS TYPICALLY SHIP WITHIN 1-3 BUSINESS DAYS
-        Once your order ships you will receive an email confirmation with your tracking information. It can take up to 24 hours for your tracking information to be updated by the carrier. Thank you for your patience and understanding.
-        Please note some items may ship separately due to availability, including any pre-order items.
-        
-        Have a great day ahead!
-        
-        ESD eCommerce Team`;
+        <h2>THANK YOU FOR YOUR ORDER!</h2>
+        <br/>
+        <p>Hey put_name_here,</p>
+        <br/>
+        <p>This email contains the status of your recent order put_order_id_here. At this time, we are starting to work on your order and are unable to cancel items or make changes.</p>
+        <br/>
+        ORDERS TYPICALLY SHIP WITHIN 1-3 BUSINESS DAYS</p>
+        <br/>
+        <p>Once your order ships you will receive an email confirmation with your tracking information. </p>
+        <br/>
+        <p>It can take up to 24 hours for your tracking information to be updated by the carrier. </p>
+        <br/>
+        <p>Thank you for your patience and understanding.</p>
+        <br/>
+        <p>Please note some items may ship separately due to availability, including any pre-order items.</p>
+        </br>
+        <p>Have a great day ahead!</p>
+        <br/>
+        <p>ESD eCommerce Team</p>`;
 
         msg = msg.replace('put_name_here', name);
         msg = msg.replace('put_order_id_here', "#"+orderId);
@@ -52,12 +59,13 @@ app.post("/email/sent/:orderId", async(req,res)=>{
         const {name, email} = req.body
         let msg = `
         
-        Hey put_name_here,
-
-        We thought you'd like to know that all in stock items from your order put_order_id_here have shipped!
-
-        Have a great day ahead!
-        ESD eCommerce Team`;
+        <p>Hey put_name_here,</p>
+        <br/>
+        <p>We thought you'd like to know that all in stock items from your order put_order_id_here have shipped!</p>
+        <br/>
+        <p>Have a great day ahead!</p>
+        <br/>
+        <p>ESD eCommerce Team</p>`;
 
         msg = msg.replace('put_name_here', name);
         msg = msg.replace('put_order_id_here', "#"+orderId);
@@ -83,14 +91,17 @@ app.post("/email/receive/:orderId", async(req,res)=>{
         const {orderId} = req.params
         const {name, email} = req.body
         let msg = `
-        Hey admin,
-
-        We thought you'd like to know that 
-        User: put_name_here 
-        Order Id: put_order_id_here 
-        has arrived to your customer!
-
-        Have a great day ahead!`;
+        <p>Hey admin,</p>
+        <br/>
+        <p>We thought you'd like to know that</p>
+        <br/>
+        <p>User: put_name_here</p> 
+        <br/>
+        <p>Order Id: put_order_id_here</p> 
+        <br/>
+        <p>has arrived to your customer!</p>
+        <br/>
+        <p>Have a great day ahead!</p>`;
 
         msg = msg.replace('put_name_here', name);
         msg = msg.replace('put_order_id_here', "#"+orderId);
@@ -98,7 +109,7 @@ app.post("/email/receive/:orderId", async(req,res)=>{
         let obj = {
             orderId: orderId,
             name:name,
-            email:email,
+            email:"esd.customer.supp@gmail.com",
             body:msg
         }
 
